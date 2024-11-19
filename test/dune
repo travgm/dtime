@@ -1,0 +1,5 @@
+(library
+ (name dtime_test)
+ (libraries dtime core_unix core ppx_inline_test.runner.lib)
+ (inline_tests)
+ (preprocess (pps ppx_jane ppx_inline_test ppx_expect)))

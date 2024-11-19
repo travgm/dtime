@@ -1,0 +1,5 @@
+profile = janestreet
+margin = 90
+parse-docstrings = true
+type-decl = sparse
+wrap-comments = true

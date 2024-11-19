@@ -1,0 +1,5 @@
+(library
+ (name dtime)
+ (public_name dtime)
+ (libraries core_unix core)
+ (preprocess (pps ppx_jane ppx_inline_test)))
