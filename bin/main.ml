@@ -1,7 +1,9 @@
+open Core
 open Dtime
+open Core_unix
 
 let () =
-  let now = Unix.localtime (Core_unix.time ()) in
+  let now = localtime (time ()) in
   let decimal = to_decimal now in
   Printf.printf
     "Decimal time: %s\n"
