@@ -8,12 +8,12 @@ open Core_unix
 
 type decimal_time = float [@@deriving sexp]
 
-let time_of_day_to_seconds (tm : Core_unix.tm) : int =
+let[@inline] time_of_day_to_seconds (tm : Core_unix.tm) : int =
   let { tm_hour; tm_min; tm_sec; _ } = tm in
   (tm_hour * 3600) + (tm_min * 60) + tm_sec
 ;;
 
-let normalize_to_fraction (seconds : int) : float =
+let[@inline] normalize_to_fraction (seconds : int) : float =
   let seconds_per_day : int = 24 * 60 * 60 in
   float_of_int seconds /. float_of_int seconds_per_day
 ;;
