@@ -35,8 +35,8 @@ let to_decimal (time : Core_unix.tm) : decimal_time =
   |> fun x -> 1000.0 -. x |> Float.round
 ;;
 
-(* Helper methods for time distinction *)
-
 let is_midnight (time : t) : bool = equal time 1000.0
+
 let is_teatime (time : t) : bool = equal time 333.0
+
 let is_noon (time : t) : bool = equal time 500.0
