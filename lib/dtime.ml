@@ -1,11 +1,10 @@
 open! Core
-open Core_unix
+open! Core_unix
 
 (* A very basic implementaiton of converting the systems monotonic clock to usable decimal
    minutes in a day.
 
-   D = |1000 - (1000 * (H * 3600 + M * 60 + S) / 86400)|
-*)
+   D = |1000 - (1000 * (H * 3600 + M * 60 + S) / 86400)| *)
 
 type decimal_time = float [@@deriving sexp, compare]
 
@@ -21,9 +20,9 @@ let[@inline] time_of_day_to_seconds (tm : Core_unix.tm) : int =
   (tm_hour * 3600) + (tm_min * 60) + tm_sec
 ;;
 
-let[@inline] normalize_to_fraction (seconds : int) : float =
-  let seconds_per_day : int = 24 * 60 * 60 in
-  float_of_int seconds /. float_of_int seconds_per_day
+let normalize_to_fraction seconds =
+  let seconds_per_day = 24 * 60 * 60 in
+  Float.of_int seconds /. Float.of_int seconds_per_day
 ;;
 
 let to_decimal (time : Core_unix.tm) : decimal_time =
@@ -36,7 +35,5 @@ let to_decimal (time : Core_unix.tm) : decimal_time =
 ;;
 
 let is_midnight (time : t) : bool = equal time 1000.0
-
 let is_teatime (time : t) : bool = equal time 333.0
-
 let is_noon (time : t) : bool = equal time 500.0
