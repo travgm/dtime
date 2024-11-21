@@ -7,6 +7,7 @@ pkgs.mkShell {
      pkgs.dune_3
      pkgs.gcc
      pkgs.ocamlPackages.findlib
+     pkgs.ocamlPackages.merlin
      pkgs.ocamlPackages.core
      pkgs.ocamlPackages.core_unix
      pkgs.ocamlPackages.ppx_jane
